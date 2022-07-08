@@ -1,0 +1,59 @@
+<html>
+  <body>
+    <div id="container">
+      <form>
+        <div>
+          <label>Title</label>
+          <input type="text" id="todo-title" />
+        </div>
+        <div>
+          <label>Completed</label>
+          <input type="checkbox" id="todo-completed" />
+        </div>
+
+        <button type="submit" id="submit-todo">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  // code here
+  const textTitle = document.querySelector("#todo-title");
+  const checkboxChecked = document.querySelector("#todo-completed");
+  const submit = document.querySelector("#submit-todo");
+
+  class PostObj {
+    constructor (title, checked){
+      this.title = title
+      this.checked = checked
+    }
+  }
+
+  const newObj = new PostObj (textTitle.value, checkboxChecked.checked)
+
+ //textTitle.addEventListener("blur", () => {newObj.title = textTitle.value });
+
+  //checkboxChecked.addEventListener("blur", () => {newObj.checked = checkboxChecked.checked});
+
+
+  let postObject = async () => {
+    const rawResponse = await fetch(
+      "https://jsonplaceholder.typicode.com/posts",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json/;charset=utf-8",
+        },     
+        body: JSON.stringify(newObj),
+      }
+    );
+    console.log(newObj);
+  }
+
+  submit.addEventListener("click", (e) => {
+    e.preventDefault();
+    postObject()
+  })
+</script>

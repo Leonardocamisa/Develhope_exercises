@@ -1,0 +1,61 @@
+<html>
+  <body>
+    <div id="container">
+      <h2>Person's Form</h2>
+      <form id="person-form">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  // Code here
+  let containerEl = document.getElementById('container')
+  let personFormEl = document.getElementById('person-form')
+  personFormEl.style.display = 'flex'
+  personFormEl.style.flexDirection ='column'
+  personFormEl.style.gap = '5px'
+  containerEl.style.width = '30vw'
+
+
+
+  let firstNameInput = document.createElement("input")
+  firstNameInput.setAttribute('placeholder', 'firstName');
+  
+  let lastNameInput = document.createElement("input");
+  lastNameInput.setAttribute('placeholder', 'lastName');
+  
+  let ageInput = document.createElement("input");
+  ageInput.setAttribute('placeholder', 'age');
+  
+  let ElArray = [firstNameInput, lastNameInput, ageInput]
+
+  let initForm = () => {
+    for (let index = 0; index < ElArray.length; index++) {
+      let inputEl = ElArray[index]
+      personFormEl.prepend(inputEl)
+      console.log(inputEl);
+    }
+  }
+  initForm()
+
+  let submitPersonForm = () => {
+    let personObj = {}
+
+    for (let i = 0; i < ElArray.length; i++) {
+    let Key = ElArray[i].placeholder;
+    let Value = ElArray[i].value;
+    personObj[Key] = Value;
+  }
+    console.log(personObj);
+    }
+
+
+
+    personFormEl.addEventListener('submit', (e) => {
+      e.preventDefault();
+      submitPersonForm();
+    })
+
+</script>
