@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+
+}
+
+#green {
+    background-color: #8ffda7;
+    flex-grow: 0.1;
+    order: 3;
+  }
+  
+  #orange {
+    background-color: #ffc788;
+    flex-grow: 15;
+    order: 4;
+  }
+  
+  #yellow {
+    background-color: #ffff92;
+    flex-grow: 0.2;
+    order: 1;
+  }
+  
+  #red {
+    background-color: #ff919c;
+    flex-grow: 0.2;
+    order: 2;
+  }
+  
+  #blue {
+    background-color: #98d2ff;
+    flex-grow: 0.1;
+    order: 5;
+  }
+  
